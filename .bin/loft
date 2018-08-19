@@ -1,0 +1,5 @@
+#!/bin/bash
+running_in=$(pwd);
+echo "🦁  Simba-lating a \$PATH command invocation in $running_in"
+
+node /Users/guscrawford/loft/i/bin/main.js "$@"
