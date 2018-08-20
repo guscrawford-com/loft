@@ -13,7 +13,10 @@
                 "${workspaceFolder}/**/*.js"
             ],
             "args": [
-                "new", "nodejs-api", "api-x"
+                "new", "loft-command", "src/commands/help",
+                "--data:XXXXXX", "Help",
+                "--file:xxxxxx", "help",
+                "--data:xxxxxx","help"
             ]
         }
     ]
