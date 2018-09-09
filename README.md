@@ -19,14 +19,15 @@ You can copy work from anywhere, annotate the file with variables and re-generat
 
 - You have a lot of boiler-plate code outside of, or no longer manageable by another tooling framework.
 - You have local code that you don't want to publicize or gist, don't want to lose, but want out of your home directory.
-- You're doing something replicable, it's not ready to be (or there is no time to) isolated into a separate block, and you want to be able to extract and re-test it quickly, later on.
+- You want to copy a working project as a more general seed.
+- You're doing something replicable, it's at a stage where it may be ready to be re-used separately, and you want to be able to extract and re-test it in isolation.
 
 ## Why not...
 
-- [Yeoman](http://yeoman.io/) Yeoman is a mature, extensible scaffolder with a deep library of seed generators; Yeoman is my-man (punny), **but** I don't always need a code-generator nor am I bound within it's guiderails in many cases.
-- I may simply need to repurpose something already generated and improved before in another project, or I may be in some kind of transitive state toward developing my own generator!
-    - Loft like Yeoman, is *language agnostic*
+- [Yeoman](http://yeoman.io/) Yeoman is a mature, extensible scaffolder with a deep library of seed generators; Yeoman is my-man (punny), **but** I don't always need a code-generator nor am I "bound within it's guiderails" (have a team project where I can integrate a yeoman generator) in many cases.
+    - Loft like Yeoman, is *language agnostic*.
     - Yeoman is *opiniated* by it's own concession, while Loft is **not opinionated**; it's focus is to further ignore workflow, frameworks, environment, etc. and just template files.
+    - There is no presumption about the existing tooling in the framework or modification outside it's internal scaffolding activity.
 
 ## Install
 
@@ -43,6 +44,9 @@ Copy work anywhere to a folder in your home directory (`$HOME|$USERPROFILE/.loft
 
 `loft new scaffold my-code ./src`
 
+- default `path-to-snippet` is current directory if unspecified
+- `<createable=scaffold`> or "`scaffold`" argument above is required to *rename* a scaffold/snippet
+
 ## Use a Scaffold
 
 Copy work from your scaffolds into anywhere you're working.
@@ -55,7 +59,7 @@ Copy work from your scaffolds into anywhere you're working.
 
 ### Annotate your Code with Variables & Replace Them
 
-You can prep (or edit already stored code `$HOME|$USERPROFILE/.loft/scaffolds`) your code with commented annoations in any script language that has a way to comment.  (JSON files are not thought of yet 😅 and could be scaffolded, although awkwardly).
+You can prep (or edit already stored code `$HOME|$USERPROFILE/.loft/scaffolds`) your code with commented annoations in any script language that has a way to comment, or write innocuous text that the scaffolding engine can pick up.  (There are plans to add some kind of `loft.config.json` file so that one could externally scope variable replacements in a JSON file with rigid structure requirement, but for now you'd have to essentially add properties if you're not using JSON with comments).
 
 *example:*
 
@@ -80,7 +84,7 @@ export class AnyXXXCommand extends LoftCommand{
 }
 ```
 
-Running: `loft new any-command help-command XXX Helpfile:xxx help`
+Running: `loft new any-command help-command XXX Help file:xxx help`
 
 Will rename files matching the `file:` arguments to their supplied parameter, and replace file contents matching the `@loft:` variable prefix against the paramater pairs supplied in the `XXX` example.
 

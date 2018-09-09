@@ -7,11 +7,11 @@
   "license": "MIT",
   "public": true,
   "bugs": {
-    "url": "https://bitbucket.org/team-gus/loft-interface/issues"
+    "url": "https://github.com/GUSCRAWFORD/loft/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://bitbucket.org/team-gus/loft-interface.git"
+    "url": "https://github.com/GUSCRAWFORD/loft"
   },
   "bin": {
     "loft": "bin/main.js"
