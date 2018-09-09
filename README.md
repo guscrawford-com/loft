@@ -6,6 +6,8 @@ Loft is a tool you can use anywhere to take a snapshot of code and re-scaffold t
 
 You can copy work from anywhere, annotate the file with variables and re-generate your code ad-hoc for a new purpose.
 
+> [Install](#Install) | [Create a Scaffold](#create-a-scaffold) | [Use a Scaffold](#use-a-scaffold)
+
 ### loft
 
 **noun**
