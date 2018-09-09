@@ -1,0 +1,48 @@
+{
+  "name": "@guscrawford.com/loft-interface",
+  "version": "0.0.1",
+  "description": "The command-line, REST, or any other integration interface controlling input to loft scaffolder",
+  "main": "bin/loft.js",
+  "author": "Gus",
+  "license": "MIT",
+  "public": true,
+  "bugs": {
+    "url": "https://bitbucket.org/team-gus/loft-interface/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://bitbucket.org/team-gus/loft-interface.git"
+  },
+  "bin": {
+    "loft": "bin/main.js"
+  },
+  "dependencies": {
+    "@guscrawford.com/loft-core": "^0.0.1",
+    "@types/node": "^10.9.4",
+    "caporal": "^0.10.0"
+  },
+  "devDependencies": {
+    "@guscrawford.com/fpm": "^0.0.4",
+    "@types/source-map-support": "^0.4.1",
+    "source-map-support": "^0.5.9"
+  },
+  "keywords": [
+    "scaffold",
+    "snippet",
+    "code",
+    "management",
+    "tooling",
+    "cli",
+    "loft"
+  ],
+  "scripts": {
+    "clean": "echo \"🗑  Cleaning build...\" && rm -rf bin",
+    "build": "echo \"🛠  Building loft-interface\" && tsc && fpm transform . --distFolder bin",
+    "install": "cd ../core && yarn build && cd ../i && fpm install ../core/dist",
+    "preview": "echo \"👁  Previewing loft binary...\" && echo \"⚠️  Overwriting your global version of loft\" && rm -rf \"/Users/guscrawford/.config/yarn/global/node_modules/@guscrawford.com/loft-interface\" && yarn run clean && yarn run build && echo \"🔄  Replacing your sources & binary..\" && cp -r /Users/guscrawford/loft/i \"/Users/guscrawford/.config/yarn/global/node_modules/@guscrawford.com/loft-interface\" && echo \"🔑  Setting execute permission... 👤 👟\" && chmod u+x ~/.config/yarn/global/node_modules/@guscrawford.com/loft-interface/bin/main.js",
+    "publish": "fpm transfrom . --distFolder bin && npm publish"
+  },
+  "@fpm:transform": {
+    "scripts": "@fpm:remove"
+  }
+}

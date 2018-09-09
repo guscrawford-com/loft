@@ -1,0 +1,37 @@
+{
+	"tags":
+	{
+		"allowUnknownTags" : true
+	},
+	"plugins":[
+		 "plugins/markdown"
+		,"/Users/guscrawford/.config/yarn/global/node_modules/tsdoc/template/plugins/TSDoc.js"
+	],
+	"opts":
+	{
+		"template"	:"/Users/guscrawford/.config/yarn/global/node_modules/tsdoc/template",
+		"recurse"	:"true"
+	},
+	"templates" : {
+		"cleverLinks"     : false,
+		"monospaceLinks"  : false
+	},
+	"source":
+	{
+		"includePattern": "(\\.d)?\\.ts$"
+	},
+	"markdown"  : {
+		"parser"   : "gfm",
+		"hardwrap" : true
+	},
+	"tsdoc":{
+		"source"		:"/Users/guscrawford/loft/i/src/",
+		"destination"	:"/Users/guscrawford/loft/i/docs",
+		"tutorials"		:"",
+		"systemName"	: "i",
+		"footer"		: "",
+		"copyright"		: "i Copyright © 2018 guscrawford.",
+		"outputSourceFiles" : true,
+		"commentsOnly": true
+	}
+}

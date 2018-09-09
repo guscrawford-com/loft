@@ -1,0 +1,33 @@
+{
+  "name": "@guscrawford.com/loft-core",
+  "version": "0.0.1",
+  "description": "The core loft toolkit for copying and scaffolding files",
+  "main": "./dist/bin/main.js",
+  "types": "./dist/lib/main.d.ts",
+  "license": "MIT",
+  "dependencies": {},
+  "repository": "https://bitbucket.org/team-gus/loft-core.git",
+  "author": "Gus Crawford <crawford.gus@gmail.com>",
+  "scripts": {
+    "build": "echo \"🛠  Building loft-core...\" && tsc && fpm transform .",
+    "clean": "echo \"🗑  Cleaning loft-core build...\" && rm -rf dist",
+    "publish": "npm version patch && git commit -a -m \"published\" && yarn build && cd dist && npm publish --access=public"
+  },
+  "devDependencies": {
+    "@guscrawford.com/fpm": "^0.0.4",
+    "@types/node": "^8.11.4"
+  },
+  "@fpm:transform": {
+    "scripts": "@fpm:remove",
+    "main": {
+      "@fpm:replace": {
+        "dist\\/": ""
+      }
+    },
+    "types": {
+      "@fpm:replace": {
+        "dist\\/": ""
+      }
+    }
+  }
+}
